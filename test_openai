@@ -1,0 +1,15 @@
+import openai
+import requests
+import IPython.display as Disp
+
+openai.api_key = "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"
+
+response = openai.Image.create(
+prompt="a cute white color pug puppy on a field of golden tulips in Holland, having an old windmill on the background anime style",
+
+  n=1,
+  size="512x512"
+)
+image_url = response['data'][0]['url']
+
+Disp.Image(requests.get(image_url).content)
